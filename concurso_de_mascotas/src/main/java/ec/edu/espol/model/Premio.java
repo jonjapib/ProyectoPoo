@@ -16,4 +16,14 @@ public class Premio {
     private String descripcion;
     private Concurso idConcurso;
     
+    //Constructor
+
+    public Premio(int id, int lugar, String descripcion, Concurso idConcurso) {
+        this.id = id;
+        this.lugar = lugar;
+        this.descripcion = descripcion;
+        this.idConcurso = idConcurso;
+    }
+    
+    
 }
