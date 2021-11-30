@@ -22,6 +22,20 @@ public class Evaluacion {
     private int idCriterio;
     private Criterio criterio;
     
+    //Constructor
+
+    public Evaluacion(int id, int idescripcion, Inscripcion inscripcion, int idMiembroJurado, MiembroJurado miembroJurado, double nota, int idCriterio, Criterio criterio) {
+        this.id = id;
+        this.idescripcion = idescripcion;
+        this.inscripcion = inscripcion;
+        this.idMiembroJurado = idMiembroJurado;
+        this.miembroJurado = miembroJurado;
+        this.nota = nota;
+        this.idCriterio = idCriterio;
+        this.criterio = criterio;
+    }
+    
+    
     //Método nextEvaluacion
     public Evaluacion nextEvaluacion(Scanner sc){
         
