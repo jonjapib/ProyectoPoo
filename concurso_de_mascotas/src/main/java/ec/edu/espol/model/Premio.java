@@ -10,5 +10,10 @@ package ec.edu.espol.model;
  * @author Pibaque Ponce
  */
 public class Premio {
+    //Atributos
+    private int id;
+    private int lugar;
+    private String descripcion;
+    private Concurso idConcurso;
     
 }
