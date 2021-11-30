@@ -21,6 +21,18 @@ public class Inscripcion {
     private double valor;
     private double descuento;
     
+    //Constructor
+
+    public Inscripcion(int id, int idMascota, Mascota mascota, int idConcurso, double valor, double descuento) {
+        this.id = id;
+        this.idMascota = idMascota;
+        this.mascota = mascota;
+        this.idConcurso = idConcurso;
+        this.valor = valor;
+        this.descuento = descuento;
+    }
+    
+    
     //Método nextInscripcion
     public Inscripcion nextInscripcion(Scanner sc){
         
