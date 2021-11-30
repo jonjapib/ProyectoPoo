@@ -5,10 +5,28 @@
  */
 package ec.edu.espol.model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Pibaque Ponce
  */
 public class Evaluacion {
+    //Atributos
+    private int id;
+    private int idescripcion;
+    private Inscripcion inscripcion;
+    private int idMiembroJurado;
+    private MiembroJurado miembroJurado;
+    private double nota;
+    private int idCriterio;
+    private Criterio criterio;
+    
+    //Método nextEvaluacion
+    public Evaluacion nextEvaluacion(Scanner sc){
+        
+        return null;
+        
+    }
     
 }
