@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Pibaque Ponce
+ * @author Pibaque Ponce..
  */
 public class MiembroJurado {
     private int idMJurado;

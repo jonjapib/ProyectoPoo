@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Pibaque Ponce
+ * @author Pibaque Ponce..
  */
 public class Criterio {
     private int idCriterio;
