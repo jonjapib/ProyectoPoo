@@ -5,6 +5,7 @@
  */
 package ec.edu.espol.util;
 
+import ec.edu.espol.model.MiembroJurado;
 import java.util.Scanner;
 
 /**
@@ -52,9 +53,15 @@ public class Menu {
                 
                 break;
             case 7:
-                
+                System.out.println("Ingrese Datos del jurado");
+                MiembroJurado p = MiembroJurado.nextMiembroJurado(sc);
+                p.savefile("jurado.txt"); 
                 break;
         }
+        }
+                public static int idJurado(){
+            int id=Util.nextID("jurado.txt");
+            return id;
         }
        
     
