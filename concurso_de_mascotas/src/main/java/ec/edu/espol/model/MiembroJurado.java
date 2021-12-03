@@ -31,6 +31,7 @@ public class MiembroJurado {
         this.telefono = telefono;
         this.email = email;
         this.perfil = perfil;
+        this.evaluacion = new ArrayList<>();
     }
 
     public int getIdMJurado() {
