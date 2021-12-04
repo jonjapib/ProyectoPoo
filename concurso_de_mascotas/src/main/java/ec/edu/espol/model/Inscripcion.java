@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Ana Jara
+ * @author Pibaque Ponce
  */
 public class Inscripcion {
     //Argumentos
