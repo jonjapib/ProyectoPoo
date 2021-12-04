@@ -37,6 +37,7 @@ public class Inscripcion {
     //Método nextInscripcion
     public Inscripcion nextInscripcion(Scanner sc){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        
         System.out.println("Nombre de la mascota: ");
         String nombre = sc.nextLine();
         System.out.println("Nombre de Concurso: ");
