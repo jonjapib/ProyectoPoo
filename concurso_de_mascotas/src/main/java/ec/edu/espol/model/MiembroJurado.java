@@ -5,6 +5,7 @@
  */
 package ec.edu.espol.model;
 
+import ec.edu.espol.util.Menu;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
@@ -13,7 +14,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Pibaque Ponce
+ * @author Pibaque Ponce..
  */
 public class MiembroJurado {
     private int idMJurado;
@@ -24,13 +25,14 @@ public class MiembroJurado {
     private String perfil;
     private ArrayList<Evaluacion> evaluacion;
 
-    public MiembroJurado(int idMJurado, String nombre, String apellido, String telefono, String email, String perfil) {
-        this.idMJurado = idMJurado;
+    public MiembroJurado(String nombre, String apellido, String telefono, String email, String perfil) {
+        this.idMJurado =Menu.idJurado();
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
         this.email = email;
         this.perfil = perfil;
+        this.evaluacion = new ArrayList<>();
     }
 
     public int getIdMJurado() {
@@ -89,14 +91,33 @@ public class MiembroJurado {
         this.evaluacion = evaluacion;
     }
     
-    public Criterio nextCriterio(Scanner sc){
-  
-        return null;
-  
-  }
+        public static MiembroJurado nextMiembroJurado(Scanner sc){
+           System.out.println("Ingrese Nombre:");
+           String nombre=sc.next();
+            
+            System.out.println("Ingrese apellido:");
+            String apellido=sc.next();
+                           
+            System.out.println("Ingrese telefono:");
+            String telefono= sc.next();
+                                  
+            System.out.println("Ingrese email:");
+            String email=sc.next();
+                                             
+            System.out.println("perfil:");
+            String perfil =sc.next();
+            
+       MiembroJurado persona = new MiembroJurado(nombre, apellido, telefono, email, perfil);
+    
+        return persona;
+    
+    }
   public void savefile(String File){
   try(PrintWriter pw= new PrintWriter(new FileOutputStream(new File(File),true))){
-      System.out.println("");
+      
+   
+      pw.println(+getIdMJurado()+"|"+this.nombre+"|"+this.apellido+"|"+this.telefono+"|"+this.email+"|"+perfil);
+      
   }catch(Exception e){
       System.out.println(e.getMessage());
   }
