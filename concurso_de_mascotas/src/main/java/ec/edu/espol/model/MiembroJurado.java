@@ -17,7 +17,7 @@ import java.util.Scanner;
  * @author Pibaque Ponce..
  */
 public class MiembroJurado {
-    private int idMJurado;
+    private int idMJCedula;
     private String nombre;
     private String apellido;
     private String telefono;
@@ -25,8 +25,8 @@ public class MiembroJurado {
     private String perfil;
     private ArrayList<Evaluacion> evaluacion;
 
-    public MiembroJurado(String nombre, String apellido, String telefono, String email, String perfil) {
-        this.idMJurado =Menu.idJurado();
+    public MiembroJurado(int idMJCedula,String nombre, String apellido, String telefono, String email, String perfil) {
+        this.idMJCedula =idMJCedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -35,12 +35,12 @@ public class MiembroJurado {
         this.evaluacion = new ArrayList<>();
     }
 
-    public int getIdMJurado() {
-        return idMJurado;
+    public int getIdMJCedula() {
+        return idMJCedula;
     }
 
-    public void setIdMJurado(int idMJurado) {
-        this.idMJurado = idMJurado;
+    public void setIdMJCedula(int idMJCedula) {
+        this.idMJCedula = idMJCedula;
     }
 
     public String getNombre() {
@@ -90,8 +90,17 @@ public class MiembroJurado {
     public void setEvaluacion(ArrayList<Evaluacion> evaluacion) {
         this.evaluacion = evaluacion;
     }
+
+    @Override
+    public String toString() {
+       return   "["+idMJCedula+","+nombre + "," + apellido + "," + telefono + "," + email + "," + perfil + "]";
+    }
+    
     
         public static MiembroJurado nextMiembroJurado(Scanner sc){
+           System.out.println("Ingrese numero de Cedula:");
+           int cedula=sc.nextInt();
+            
            System.out.println("Ingrese Nombre:");
            String nombre=sc.next();
             
@@ -107,7 +116,7 @@ public class MiembroJurado {
             System.out.println("perfil:");
             String perfil =sc.next();
             
-       MiembroJurado persona = new MiembroJurado(nombre, apellido, telefono, email, perfil);
+       MiembroJurado persona = new MiembroJurado(cedula ,nombre, apellido, telefono, email, perfil);
     
         return persona;
     
@@ -116,26 +125,31 @@ public class MiembroJurado {
   try(PrintWriter pw= new PrintWriter(new FileOutputStream(new File(File),true))){
       
    
-      pw.println(+getIdMJurado()+"|"+this.nombre+"|"+this.apellido+"|"+this.telefono+"|"+this.email+"|"+perfil);
+      pw.println(+this.idMJCedula+"|"+this.nombre+"|"+this.apellido+"|"+this.telefono+"|"+this.email+"|"+perfil);
       
   }catch(Exception e){
       System.out.println(e.getMessage());
   }
+   
+
   }
-  public ArrayList<Criterio> ArrayFile(String File){
-      ArrayList<Criterio> criterios = new ArrayList<>();
-      try(Scanner sc =new Scanner(new File(File))){
-            while(sc.hasNextLine()){
-      String linea =sc.nextLine();
-      //
-      //
-            }
-      } catch(Exception e){
-          System.out.println(e.getMessage());
-      }  
-      return null;
-      
-  }
+  public static ArrayList<MiembroJurado> readFile(String File){
+        ArrayList<MiembroJurado> jurado = new ArrayList<>();
+       try(Scanner sc = new Scanner(new File(File))) {
+           while(sc.hasNextLine()){
+              String linea=sc.nextLine();
+              String[] tokens = linea.split("\\|");
+               MiembroJurado v =new MiembroJurado(Integer.parseInt(tokens[0]),tokens[1],tokens[2],tokens[3],tokens[4],tokens[5]);
+              jurado.add(v);
+              
+               
+           }
+       }
+          catch(Exception e){
+           System.out.println(e.getMessage());
+       }
+       return jurado;
+    }
   
     
     
