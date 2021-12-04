@@ -5,12 +5,13 @@
  */
 package ec.edu.espol.model;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  *
- * @author Pibaque Ponce
+ * @author Ana Jara
  */
 public class Inscripcion {
     //Argumentos
@@ -35,6 +36,15 @@ public class Inscripcion {
     
     //Método nextInscripcion
     public Inscripcion nextInscripcion(Scanner sc){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        System.out.println("Nombre de la mascota: ");
+        String nombre = sc.nextLine();
+        System.out.println("Nombre de Concurso: ");
+        String nombreConcurso = sc.nextLine();
+        System.out.println("Valor a pagar por la inscripción: ");
+        double pagoInscripcion = sc.nextDouble();
+        System.out.println("Fecha de la inscripción: ");
+        String fechaInscripcion = sc.nextLine();
         
         return null;
         
