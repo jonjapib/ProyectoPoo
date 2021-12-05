@@ -5,6 +5,7 @@
  */
 package ec.edu.espol.util;
 
+import ec.edu.espol.model.Concurso;
 import ec.edu.espol.model.Criterio;
 import ec.edu.espol.model.MiembroJurado;
 import java.util.ArrayList;
@@ -44,7 +45,11 @@ public class Menu {
                 
                 break;
             case 3:
-                
+                System.out.println("Ingrese los datos del concurso");
+                Concurso nxConcurso = Concurso.nextConcurso(sc);
+                nxConcurso.saveFile("concurso.txt"); 
+                ArrayList<Concurso> listaConcurso = Concurso.readFile("concurso.txt");
+                System.out.println(listaConcurso);
                 break;
             case 4:
                 
@@ -54,16 +59,13 @@ public class Menu {
                 System.out.println("ingrese numero de criterios: ");
                 int numero=scNumero.nextInt();                
                int i=0;
-               do{
-               ++i;
+               do{++i;
                System.out.println("ingrese criterio");
                Criterio c= Criterio.nextCriterio(sc);
                c.savefile("Criterios.txt");
                ArrayList<Criterio> v = Criterio.readFile("Criterios.txt");
                System.out.println(v);
-               }
-               while(numero>0 && numero>i);
-                   
+               } while(numero>0 && numero>i);     
                 break;
 
             case 6:

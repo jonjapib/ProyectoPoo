@@ -131,8 +131,10 @@ public class Concurso {
     
     public static Concurso nextConcurso(Scanner sc){
         System.out.println("Ingrese Nombre: ");
+        sc.useDelimiter("\n");
+        sc.nextLine();
         String nameM = sc.nextLine();
-        System.out.println("Ingrese Fecha(yyyy-mm-dd): ");
+        System.out.println("Ingrese Fecha(yyyy-mm-dd) ej:2016-08-06:  ");    
         String fecha = sc.nextLine();
         LocalDate fecha0 = LocalDate.parse(fecha);
         System.out.println("Ingrese fecha de Inicio de Inscripcion(yyyy-mm-dd): ");
@@ -167,7 +169,7 @@ public class Concurso {
        try(Scanner sc = new Scanner(new File(nomfile))){
            while(sc.hasNextLine()){
                String linea = sc.nextLine();
-               String[] tokens = linea.split("|");
+               String[] tokens = linea.split("\\|");
                Concurso c = new Concurso(Integer.parseInt(tokens[0]),tokens[1],LocalDate.parse(tokens[2]),LocalDate.parse(tokens[3]),LocalDate.parse(tokens[4]),tokens[5],Double.parseDouble(tokens[6]));              
                concursos.add(c);
            }
