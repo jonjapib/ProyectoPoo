@@ -6,6 +6,7 @@
  */
 package ec.edu.espol.model;
 
+import ec.edu.espol.util.Util;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
@@ -29,7 +30,7 @@ public class Concurso {
     private double costo;
     private ArrayList<Inscripcion> inscripciones;
 
-    public Concurso(int id, String nombre, LocalDate fecha, LocalDate fechaInscripcion, LocalDate fechaCierreInscripcion, String tematica, double costo, ArrayList<Inscripcion> inscripciones) {
+    public Concurso(int id, String nombre, LocalDate fecha, LocalDate fechaInscripcion, LocalDate fechaCierreInscripcion, String tematica, double costo) {
         this.id = id;
         this.nombre = nombre;
         this.fecha = fecha;
@@ -162,13 +163,12 @@ public class Concurso {
    public static ArrayList<Concurso> readFile(String nomfile){
        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
-       ArrayList<Mascota> concursos = new ArrayList<>();
+       ArrayList<Concurso> concursos = new ArrayList<>();
        try(Scanner sc = new Scanner(new File(nomfile))){
            while(sc.hasNextLine()){
                String linea = sc.nextLine();
                String[] tokens = linea.split("|");
-               Concurso c = new Concurso(Integer.parseInt(tokens[0]),tokens[1],LocalDate.parse(tokens[2]),LocalDate.parse(tokens[3]),LocalDate.parse(tokens[4]),tokens[5],tokens[6]);
-               
+               Concurso c = new Concurso(Integer.parseInt(tokens[0]),tokens[1],LocalDate.parse(tokens[2]),LocalDate.parse(tokens[3]),LocalDate.parse(tokens[4]),tokens[5],Double.parseDouble(tokens[6]));              
                concursos.add(c);
            }
            

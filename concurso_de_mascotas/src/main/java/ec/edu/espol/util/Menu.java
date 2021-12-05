@@ -52,14 +52,17 @@ public class Menu {
             case 5:
                 Scanner scNumero = new Scanner(System.in);
                 System.out.println("ingrese numero de criterios: ");
-                int numero=scNumero.nextInt();  
+                int numero=scNumero.nextInt();                
                int i=0;
-           while(numero>0 && numero<=i){
-           i++;
+               do{
+               ++i;
                System.out.println("ingrese criterio");
                Criterio c= Criterio.nextCriterio(sc);
                c.savefile("Criterios.txt");
-           };
+               ArrayList<Criterio> v = Criterio.readFile("Criterios.txt");
+               System.out.println(v);
+               }
+               while(numero>0 && numero>i);
                    
                 break;
 
