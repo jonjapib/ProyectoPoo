@@ -100,13 +100,13 @@ public class Criterio {
 
   }
   public static ArrayList<Criterio> readFile(String File){
-        ArrayList<Criterio> jurado = new ArrayList<>();
+        ArrayList<Criterio> criterios = new ArrayList<>();
        try(Scanner sc = new Scanner(new File(File))) {
            while(sc.hasNextLine()){
               String linea=sc.nextLine();
               String[] tokens = linea.split("\\|");
                Criterio v =new Criterio(Integer.parseInt(tokens[0]),tokens[1],Integer.parseInt(tokens[0]));
-              jurado.add(v);
+              criterios.add(v);
               
                
            }
@@ -114,7 +114,7 @@ public class Criterio {
           catch(Exception e){
            System.out.println(e.getMessage());
        }
-       return jurado;
+       return criterios;
     }
   
   

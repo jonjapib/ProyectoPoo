@@ -54,11 +54,11 @@ public class Menu {
                 System.out.println("ingrese numero de criterios: ");
                 int numero=scNumero.nextInt();  
                int i=0;
-           while(numero>0&&numero<=i){
+           while(numero>0 && numero<=i){
            i++;
                System.out.println("ingrese criterio");
-     //          ArrayList <Criterio> c= Criterio.nextMiembroJurado(sc);
-     //          c.savefile("Criterios.txt");
+               Criterio c= Criterio.nextCriterio(sc);
+               c.savefile("Criterios.txt");
            };
                    
                 break;
