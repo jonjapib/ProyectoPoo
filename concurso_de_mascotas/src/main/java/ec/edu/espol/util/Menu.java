@@ -5,6 +5,7 @@
  */
 package ec.edu.espol.util;
 
+import ec.edu.espol.model.Criterio;
 import ec.edu.espol.model.MiembroJurado;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -25,6 +26,7 @@ public class Menu {
         System.out.println("7.- MiembroJurado");
         System.out.println("8.- Evaluacion");
     }
+    @SuppressWarnings("empty-statement")
         public static void menu(){
            
            Scanner sc = new Scanner(System.in);
@@ -48,8 +50,19 @@ public class Menu {
                 
                 break;
             case 5:
-               
+                Scanner scNumero = new Scanner(System.in);
+                System.out.println("ingrese numero de criterios: ");
+                int numero=scNumero.nextInt();  
+               int i=0;
+           while(numero>0&&numero<=i){
+           i++;
+               System.out.println("ingrese criterio");
+     //          ArrayList <Criterio> c= Criterio.nextMiembroJurado(sc);
+     //          c.savefile("Criterios.txt");
+           };
+                   
                 break;
+
             case 6:
                 
                 break;
