@@ -1,7 +1,4 @@
-1||2012-02-02|2012-02-02|2012-02-02|d|20.0|null
-2||2020-02-02|2020-03-03|2020-04-04|s|21.0|null
-3||2020-12-12|2020-11-11|2021-11-12|ddddd|20.0|null
-4|3|2020-02-02|2020-02-02|2020-02-02|fghjk|20.0|null
-5|rfdssxdfgvbhnjk|2020-02-02|2020-02-02|2020-02-02|gatos|20.0|null
-6|jon|2020-02-02|2020-02-02|2020-02-02|lllllll|20.0|null
-7|jon|2020-02-02|2020-02-02|2020-02-02|kkkkkk|20.0|null
+1|fotos y mascotas|2015-12-01|2015-06-01|2015-11-01|la foto mas divertida|20.0|null
+2|mascotas y disfraces|2016-12-01|2016-06-01|2016-11-01|disfrazar de la formma mas ocurrente a u mascota|30.0|null
+3|buenos amigos|2017-12-01|2017-06-01|2017-11-01|tomarse fotos divertidas junto con su amigo perruno |15.0|null
+4|animales geniales|2018-12-01|2018-06-01|2018-11-01|los mejores trucos de mascotas|35.0|null
