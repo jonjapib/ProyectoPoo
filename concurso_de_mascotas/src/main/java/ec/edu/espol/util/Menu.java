@@ -63,9 +63,11 @@ public class Menu {
                System.out.println("ingrese criterio");
                Criterio c= Criterio.nextCriterio(sc);
                c.savefile("Criterios.txt");
-               ArrayList<Criterio> v = Criterio.readFile("Criterios.txt");
-               System.out.println(v);
-               } while(numero>0 && numero>i);     
+               
+               } while(numero>0 && numero>i);  
+                  ArrayList<Criterio> vcc = Criterio.readFile("Criterios.txt");
+               System.out.println(vcc);           ;
+
                 break;
 
             case 6:

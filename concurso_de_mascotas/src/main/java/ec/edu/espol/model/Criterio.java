@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -21,28 +22,29 @@ public class Criterio {
     private int idCriterio;
     private String descripcion;
     private ArrayList<Evaluacion> evaluaciones;
-    private String idConcurso;
-    private Concurso concurso;
+    private int idConcurso;
+    private String concurso;
 
-       public Criterio(int idCriterio, String descripcion, String Concurso) {
+       public Criterio(int idCriterio, String descripcion,String concurso) {
         this.idCriterio = idCriterio;
         this.descripcion = descripcion;
+        this.concurso=concurso;
         this.evaluaciones=new ArrayList<>();
     }
-    
-    public String getIdConcurso() {
+
+    public int getIdConcurso() {
         return idConcurso;
     }
 
-    public void setIdConcurso(String idConcurso) {
+    public void setIdConcurso(int idConcurso) {
         this.idConcurso = idConcurso;
     }
-
-    public Concurso getConcurso() {
+    
+    public String getConcurso() {
         return concurso;
     }
 
-    public void setConcurso(Concurso concurso) {
+    public void setConcurso(String concurso) {
         this.concurso = concurso;
     }
 
@@ -105,21 +107,31 @@ public class Criterio {
 
 
       public static Criterio nextCriterio(Scanner sc){
-           System.out.println("Ingrese id");
-            int id=sc.nextInt();
             
-            System.out.println("Ingrese descripcion:");
+         
+          ArrayList<String> d = new ArrayList<>();
+                   for(Concurso c: Concurso.readFile("Concurso.txt")){
+            d.add(String.valueOf(c.getId()));
+                d.add(c.getNombre());     
+        }
+          System.out.println(d);
+          System.out.println("Ingrese descripcion:");
             String descripcion=sc.next();
                            
-            System.out.println("Ingrese nombre del concurso:");
-            String concuso = sc.next();
-
+            System.out.println("Ingrese id concurso:");
+            int id = sc.nextInt();
             
-       Criterio criterio = new Criterio(Util.nextID("Criterios.txt"), descripcion, concuso );
+     
+            
+          System.out.println(Concurso.readFile("Concurso.txt").get(id-1).getNombre());
+        
+            
+       Criterio criterio = new Criterio(Util.nextID("Criterios.txt"), descripcion, Concurso.readFile("Concurso.txt").get(id-1).getNombre() );
     
         return criterio;
     
     }
+      
       
     public void savefile(String File){
   try(PrintWriter pw= new PrintWriter(new FileOutputStream(new File(File),true))){

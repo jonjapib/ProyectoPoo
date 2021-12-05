@@ -107,7 +107,7 @@ public class Concurso {
 
     @Override
     public String toString() {
-        return "Concurso{" + "id=" + id + ", nombre=" + nombre + ", fecha=" + fecha + ", fechaInscripcion=" + fechaInscripcion + ", fechaCierreInscripcion=" + fechaCierreInscripcion + ", tematica=" + tematica + ", costo=" + costo + ", inscripciones=" + inscripciones + '}';
+        return "[" +id + "," + nombre + "," + fecha + "," + fechaInscripcion + "," + fechaCierreInscripcion + "," + tematica + "," + costo + "," + inscripciones + "]";
     }
     
 
