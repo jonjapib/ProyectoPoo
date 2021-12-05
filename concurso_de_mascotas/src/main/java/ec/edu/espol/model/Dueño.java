@@ -3,7 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.espol.model;
+package ec.edu.espol.modell;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -94,6 +100,7 @@ public class Dueño {
     public String toString() {
         return "Dueño{" + "id=" + id + ", nombre=" + nombre + ", apeillido=" + apeillido + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + "}"; //", mascotas=" + mascotas + '}';
     }
+<<<<<<< HEAD
     
     public static Dueño nextDueño(Scanner sc){
         
@@ -122,6 +129,36 @@ public class Dueño {
         return d ;
     }
     
+=======
+    
+    public static Dueño nextDueño(Scanner sc){
+        
+        int idD = Util.nextID("Dueño.txt");
+        System.out.println("Ingrese Nombre: ");
+        String nameD = sc.nextLine();
+        System.out.println("Ingrese Apellido: ");
+        String lnameD = sc.nextLine();
+        System.out.println("Ingrese Direccion: ");
+        String direccD = sc.nextLine();
+        System.out.println("Ingrese Numero Telefonico: ");
+        String phoneD = sc.nextLine();
+        System.out.println("Ingrese e-mail: ");
+        String emailD = sc.nextLine();
+        
+        
+        ArrayList<Mascota> listaM = new ArrayList<Mascota>();
+        for(Mascota m: Mascota.readFile("Mascota.txt")){
+            if(idD==m.getIdDueño()){
+                listaM.add(m);
+        }
+        }
+        Dueño d = new Dueño(idD,nameD,lnameD,direccD,phoneD,emailD,listaM);
+        d.saveFile("Dueño.txt");
+        
+        return d ;
+    }
+    
+>>>>>>> bedc58bc0aea9f8dfb68ef9ec110830ab1a13402
     public void saveFile(String nomfile){
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true))){
            Mascota arr[] = new Mascota[this.mascotas.size()];
@@ -152,4 +189,7 @@ public class Dueño {
            System.out.println(e.getMessage());
        }
        return dueños;
+<<<<<<< HEAD
 
+=======
+>>>>>>> bedc58bc0aea9f8dfb68ef9ec110830ab1a13402

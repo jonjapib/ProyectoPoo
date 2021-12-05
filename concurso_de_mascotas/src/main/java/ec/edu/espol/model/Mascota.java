@@ -3,7 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ec.edu.espol.model;
+package ec.edu.espol.modell;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,6 +38,7 @@ public class Mascota {
     private int idDueño;
     private Dueño dueño;
     //private ArrayList<Inscripcion> inscripciones;
+<<<<<<< HEAD
     
     public Mascota(int id, String nombre, String raza, LocalDate fechaNacimiento, String tipo, int idDueño, Dueño dueño){ //ArrayList<Inscripcion> inscripciones) {
         this.id = id;
@@ -123,6 +134,103 @@ public class Mascota {
         return true;
     }
     
+=======
+    
+    public Mascota(int id, String nombre, String raza, LocalDate fechaNacimiento, String tipo, int idDueño, Dueño dueño){ //ArrayList<Inscripcion> inscripciones) {
+        this.id = id;
+        this.nombre = nombre;
+        this.raza = raza;
+        this.fechaNacimiento = fechaNacimiento;
+        this.tipo = tipo;
+        this.idDueño = idDueño;
+        this.dueño = dueño;
+        //this.inscripciones = inscripciones;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getRaza() {
+        return raza;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public int getIdDueño() {
+        return idDueño;
+    }
+
+    public Dueño getDueño() {
+        return dueño;
+    }
+
+    //public ArrayList<Inscripcion> getInscripciones() {
+    //      return inscripciones;
+    //}
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setRaza(String raza) {
+        this.raza = raza;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setIdDueño(int idDueño) {
+        this.idDueño = idDueño;
+    }
+
+    public void setDueño(Dueño dueño) {
+        this.dueño = dueño;
+    }
+
+    //public void setInscripciones(ArrayList<Inscripcion> inscripciones) {
+    //    this.inscripciones = inscripciones;
+    //}
+
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Mascota other = (Mascota) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        return true;
+    }
+    
+>>>>>>> bedc58bc0aea9f8dfb68ef9ec110830ab1a13402
     
     
     @Override
@@ -176,4 +284,7 @@ public class Mascota {
        }
        return mascotas; 
     } 
+<<<<<<< HEAD
 
+=======
+>>>>>>> bedc58bc0aea9f8dfb68ef9ec110830ab1a13402
