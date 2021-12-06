@@ -123,17 +123,17 @@ public class Evaluacion {
       public static Evaluacion nextEvaluacion(Scanner sc){
             
          
-//          ArrayList<String> d = new ArrayList<>();
-//                   for(Concurso c: Concurso.readFile("Concurso.txt")){
-//            d.add(String.valueOf(c.getId()));
-//                d.add(c.getNombre());     
-//        }
-//          System.out.println(d);
-//          System.out.println("Ingrese nota:");
-//            String descripcion=sc.n();
-//                           
-//            System.out.println("Ingrese id concurso:");
-//            int id = sc.nextInt();       
+          ArrayList<String> d = new ArrayList<>();
+                   for(Concurso c: Concurso.readFile("Concurso.txt")){
+           d.add(String.valueOf(c.getId()));
+                d.add(c.getNombre());     
+        }
+          System.out.println(d);
+          System.out.println("Ingrese nota:");
+            String descripcion=sc.n();
+                           
+            System.out.println("Ingrese id concurso:");
+            int id = sc.nextInt();       
                System.out.println("ingrese nota de evaluacion");
                double nota=sc.nextDouble();
         String correo = MiembroJurado.readFile("MiembroJurado.txt").get(0).getEmail();
