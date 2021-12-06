@@ -91,11 +91,9 @@ public class Inscripcion {
     }
     
     //Método readFile
-<<<<<<< HEAD
-    public ArrayList<Inscripcion> readFile(String File){
-=======
+
 public ArrayList<Inscripcion> readFile(String File){
->>>>>>> 1cf423174e93a2555a8977e1eea3427d062576af
+
         ArrayList<Inscripcion> inscripciones = new ArrayList<>();
        try(Scanner sc = new Scanner(new File(File))) {
            while(sc.hasNextLine()){
@@ -111,11 +109,9 @@ public ArrayList<Inscripcion> readFile(String File){
            System.out.println(e.getMessage());
        }
        return inscripciones;
-<<<<<<< HEAD
-    }   
-=======
+
     }
->>>>>>> 1cf423174e93a2555a8977e1eea3427d062576af
+
   
     
 }

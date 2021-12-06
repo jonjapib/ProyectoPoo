@@ -1,4 +1,4 @@
-package ec.edu.espol.modell;
+package ec.edu.espol.model;
 
 import java.io.File;
 import java.io.FileOutputStream;
