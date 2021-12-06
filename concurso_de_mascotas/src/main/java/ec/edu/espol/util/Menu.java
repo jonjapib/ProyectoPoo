@@ -43,12 +43,17 @@ public class Menu {
         switch(opcion){
             case 1:
                 System.out.println("Ingrese los datos del Dueño");
-                Dueño nxDueño = Dueño.nextConcurso(sc);
-                
-               
+                Dueño nxDueño = Dueño.nextDueño(sc);
+                nxDueño.saveFile("Dueño.txt");
+                ArrayList<Dueño> listaDueño = Dueño.readFile("Dueño.txt");
+                System.out.println(listaDueño);
                 break;
             case 2:
-                
+                System.out.println("Ingrese los datos de la Mascota: ");
+                Mascota nxMascota = Mascota.nextMascota(sc);
+                nxMascota.saveFile("Mascota.txt");
+                ArrayList<Mascota> listaMascota = Mascota.readFile("Mascota.txt");
+                System.out.println(listaMascota);
                 break;
             case 3:
                 System.out.println("Ingrese los datos del concurso");
