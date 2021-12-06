@@ -37,6 +37,8 @@ public class Menu {
               System.out.println("Ingrese opcion:");
               opcion =sc.nextInt();
           }
+          
+          
         switch(opcion){
             case 1:
                
@@ -79,6 +81,13 @@ public class Menu {
                 p.savefile("jurado.txt"); 
                 ArrayList<MiembroJurado> v = MiembroJurado.readFile("jurado.txt");
                 System.out.println(v);
+                break;
+            case 8:
+//                                System.out.println("Ingrese Datos del jurado");
+//                MiembroJurado p = MiembroJurado.nextMiembroJurado(sc);
+//                p.savefile("jurado.txt"); 
+//                ArrayList<MiembroJurado> v = MiembroJurado.readFile("jurado.txt");
+//                System.out.println(v);
                 break;
         }
         }

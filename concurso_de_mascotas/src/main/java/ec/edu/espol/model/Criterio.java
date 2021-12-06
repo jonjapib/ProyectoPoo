@@ -91,15 +91,7 @@ public class Criterio {
         }
         if (!Objects.equals(this.descripcion, other.descripcion)) {
             return false;
-        }
-        if (!Objects.equals(this.idConcurso, other.idConcurso)) {
-            return false;
-        }
-        if (!Objects.equals(this.evaluaciones, other.evaluaciones)) {
-            return false;
-        }
-        if (!Objects.equals(this.concurso, other.concurso)) {
-            return false;
+   
         }
         return true;
     }
@@ -113,17 +105,20 @@ public class Criterio {
                    for(Concurso c: Concurso.readFile("Concurso.txt")){
             d.add(String.valueOf(c.getId()));
                 d.add(c.getNombre());     
-        }
+        } 
+           sc.nextLine();
           System.out.println(d);
           System.out.println("Ingrese descripcion:");
-            String descripcion=sc.next();
+            String descripcion=sc.nextLine();
+            sc.useDelimiter("\n");
+           
                            
-            System.out.println("Ingrese id concurso:");
+            System.out.println("Ingrese el id de concurso para guardado:");
             int id = sc.nextInt();
             
      
             
-          System.out.println(Concurso.readFile("Concurso.txt").get(id-1).getNombre());
+      //    System.out.println(Concurso.readFile("Concurso.txt").get(id-1).getNombre());
         
             
        Criterio criterio = new Criterio(Util.nextID("Criterios.txt"), descripcion, Concurso.readFile("Concurso.txt").get(id-1).getNombre() );

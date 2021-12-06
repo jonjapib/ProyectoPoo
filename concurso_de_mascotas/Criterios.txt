@@ -1,9 +1,5 @@
-1|1|buenos amigos
-2|2|animales geniales
-3|1|mascotas y disfraces
-4|1|fotos y mascotas
-5|d|fotos y mascotas
-6|1111|fotos y mascotas
-7|aaa|fotos y mascotas
-8|a|fotos y mascotas
-9|gh|mascotas y disfraces
+1|originalidad de fotografia|fotos y mascotas
+2|angulo|fotos y mascotas
+3|tonalidad|fotos y mascotas
+4|originalidad del disfaz|mascotas y disfraces
+5|ternura|mascotas y disfraces
