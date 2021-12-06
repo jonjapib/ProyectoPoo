@@ -89,8 +89,8 @@ public class Inscripcion {
        }
         
     }
-    
-    //Método readFile
+
+
 
 public ArrayList<Inscripcion> readFile(String File){
 
@@ -109,8 +109,6 @@ public ArrayList<Inscripcion> readFile(String File){
            System.out.println(e.getMessage());
        }
        return inscripciones;
-
-    }
 
   
     
