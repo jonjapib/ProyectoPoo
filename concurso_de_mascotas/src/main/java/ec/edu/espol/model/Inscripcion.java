@@ -91,10 +91,22 @@ public class Inscripcion {
     }
     
     //Método readFile
-    public ArrayList readFile(String File){
-        
-        return null;
-        
+public ArrayList<Inscripcion> readFile(String File){
+        ArrayList<Inscripcion> inscripciones = new ArrayList<>();
+       try(Scanner sc = new Scanner(new File(File))) {
+           while(sc.hasNextLine()){
+              String linea=sc.nextLine();
+              String[] tokens = linea.split("\\|");
+               Evaluacion e =new Evaluacion(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]),tokens[2],Integer.parseInt(tokens[3]),Double.parseDouble(tokens[4]),Double.parseDouble(tokens[5]));
+              inscripciones.add(e);
+              
+               
+           }
+       }
+          catch(Exception e){
+           System.out.println(e.getMessage());
+       }
+       return inscripciones;
     }
   
     
