@@ -41,6 +41,9 @@ public class Menu {
           
         switch(opcion){
             case 1:
+                System.out.println("Ingrese los datos del Dueño");
+                Dueño nxDueño = Dueño.nextConcurso(sc);
+                
                
                 break;
             case 2:
