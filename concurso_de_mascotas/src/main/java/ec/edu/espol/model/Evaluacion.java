@@ -134,7 +134,7 @@ public class Evaluacion {
 //                           
 //            System.out.println("Ingrese id concurso:");
 //            int id = sc.nextInt();       
-               System.out.println("ingrese correo nota de evaluacion");
+               System.out.println("ingrese nota de evaluacion");
                double nota=sc.nextDouble();
         String correo = MiembroJurado.readFile("MiembroJurado.txt").get(0).getEmail();
         int idJurado = MiembroJurado.readFile("MiembroJurado.txt").get(1).getIdMJCedula();

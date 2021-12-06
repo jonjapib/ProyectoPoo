@@ -98,7 +98,7 @@ public class MiembroJurado {
     
     
         public static MiembroJurado nextMiembroJurado(Scanner sc){
-           System.out.println("Ingrese numero de Cedula:");
+           System.out.println("Ingrese numero de Cedula(sin el cero al comienzo):");
            int cedula=sc.nextInt();
             
            System.out.println("Ingrese Nombre:");
