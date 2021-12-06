@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ec.edu.espol.model;
+package ec.edu.espol.modell;
 
-import ec.edu.espol.util.Util;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
@@ -15,7 +9,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
-
 
 /**
  *
@@ -29,7 +22,7 @@ public class Mascota {
     private String tipo;          //perro o gato
     private int idDueño;
     private Dueño dueño;
-    //private ArrayList<Inscripcion> inscripciones;
+    private ArrayList<Inscripcion> inscripciones;
     
     public Mascota(int id, String nombre, String raza, LocalDate fechaNacimiento, String tipo, int idDueño, Dueño dueño){ //ArrayList<Inscripcion> inscripciones) {
         this.id = id;
@@ -39,7 +32,7 @@ public class Mascota {
         this.tipo = tipo;
         this.idDueño = idDueño;
         this.dueño = dueño;
-        //this.inscripciones = inscripciones;
+        this.inscripciones = inscripciones;
     }
 
     public int getId() {
@@ -70,9 +63,9 @@ public class Mascota {
         return dueño;
     }
 
-    //public ArrayList<Inscripcion> getInscripciones() {
-    //      return inscripciones;
-    //}
+    public ArrayList<Inscripcion> getInscripciones() {
+          return inscripciones;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -102,9 +95,9 @@ public class Mascota {
         this.dueño = dueño;
     }
 
-    //public void setInscripciones(ArrayList<Inscripcion> inscripciones) {
-    //    this.inscripciones = inscripciones;
-    //}
+    public void setInscripciones(ArrayList<Inscripcion> inscripciones) {
+        this.inscripciones = inscripciones;
+    }
 
     
     @Override
@@ -124,14 +117,17 @@ public class Mascota {
         }
         return true;
     }
-     
+    
+    
+    
     @Override
     public String toString() {
         return "Mascota{" + "id=" + id + ", nombre=" + nombre + ", raza=" + raza + ", fechaNacimiento=" + fechaNacimiento + ", tipo=" + tipo + ", idDueño=" + idDueño + ", due\u00f1o=" + dueño + '}';
     }
     
     public static Mascota nextMascota(Scanner sc) {
-        
+        int idMD = 0;
+        Dueño duenio = null;
         System.out.println("Ingrese Nombre: ");
         String nameM = sc.nextLine();
         System.out.println("Ingrese Raza: ");
@@ -144,8 +140,14 @@ public class Mascota {
         
         System.out.println("Ingrese correo del Dueño: ");
         String emailD = sc.nextLine();
-        
-        return new Mascota(Util.nextID("Mascota.txt"), nameM, razaM, fechaM0, tipoM, idDM);
+        ArrayList<Dueño> d = Dueño.readFile("Dueño.txt");
+        for(Dueño x: d){
+            if(x.getEmail().equals(emailD)){
+                idMD = x.getId();
+                duenio = x;
+            }
+        }
+        return new Mascota(Util.nextID("Mascota.txt"), nameM, razaM, fechaM0, tipoM, idMD, duenio);
     }
     
     public void saveFile(String nomfile){
@@ -165,8 +167,9 @@ public class Mascota {
        try(Scanner sc = new Scanner(new File(nomfile))){
            while(sc.hasNextLine()){
                String linea = sc.nextLine();
-               String[] tokens = linea.split("|");
-               Mascota m = new Mascota(Integer.parseInt(tokens[0]),tokens[1],tokens[2],LocalDate.parse(tokens[3]),tokens[4],Integer.parseInt(tokens[5]));
+               String[] tokens = linea.split("//|");
+               String[] duenio = tokens[6].split(",");
+               Mascota m = new Mascota(Integer.parseInt(tokens[0]),tokens[1],tokens[2],LocalDate.parse(tokens[3]),tokens[4],Integer.parseInt(tokens[5]), new Dueño(Integer.parseInt(duenio[0]),duenio[1],duenio[2],duenio[3],duenio[4],duenio[5]));
                mascotas.add(m);
            }
            
@@ -176,4 +179,6 @@ public class Mascota {
        }
        return mascotas; 
     } 
+    
+    
 }
