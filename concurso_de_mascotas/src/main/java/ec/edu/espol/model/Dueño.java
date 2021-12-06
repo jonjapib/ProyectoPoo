@@ -1,12 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ec.edu.espol.model;
+package ec.edu.espol.modell;
 
-
-import ec.edu.espol.util.Util;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
@@ -26,7 +19,7 @@ public class Dueño {
     private String email;
     private ArrayList<Mascota> mascotas;
 
-    public Dueño(int id, String nombre, String apeillido, String direccion, String telefono, String email, ArrayList<Mascota> mascotas){
+    public Dueño(int id, String nombre, String apeillido, String direccion, String telefono, String email){
         this.id = id;
         this.nombre = nombre;
         this.apeillido = apeillido;
@@ -95,7 +88,8 @@ public class Dueño {
     @Override
     public String toString() {
         return "Dueño{" + "id=" + id + ", nombre=" + nombre + ", apeillido=" + apeillido + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + "}"; //", mascotas=" + mascotas + '}';
-    }  
+    }
+    
     public static Dueño nextDueño(Scanner sc){
         
         int idD = Util.nextID("Dueño.txt");
@@ -117,7 +111,7 @@ public class Dueño {
                 listaM.add(m);
         }
         }
-        Dueño d = new Dueño(idD,nameD,lnameD,direccD,phoneD,emailD,listaM);
+        Dueño d = new Dueño(idD,nameD,lnameD,direccD,phoneD,emailD);
         d.saveFile("Dueño.txt");
         
         return d ;
@@ -125,9 +119,8 @@ public class Dueño {
     
     public void saveFile(String nomfile){
         try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true))){
-           Mascota arr[] = new Mascota[this.mascotas.size()];
-           arr = this.mascotas.toArray(arr);
-           pw.println(this.id+"|"+this.nombre+"|"+this.apeillido+"|"+this.direccion+"|"+this.email+"|"+this.telefono+"|"+arr);
+           
+           pw.println(this.id+"|"+this.nombre+"|"+this.apeillido+"|"+this.direccion+"|"+this.email+"|"+this.telefono+"|"+this.mascotas);
        }
        
        catch(Exception e){
@@ -144,7 +137,7 @@ public class Dueño {
                ArrayList<Mascota> str = new ArrayList<>();
                String str1 [] = tokens[6].split(",");
                
-               Dueño d = new Dueño(Integer.parseInt(tokens[0]),tokens[1],tokens[2],tokens[3],tokens[4],tokens[5],str);
+               Dueño d = new Dueño(Integer.parseInt(tokens[0]),tokens[1],tokens[2],tokens[3],tokens[4],tokens[5]);
                dueños.add(d);
            }
            
@@ -153,7 +146,6 @@ public class Dueño {
            System.out.println(e.getMessage());
        }
        return dueños;
-
     }
 }
 
