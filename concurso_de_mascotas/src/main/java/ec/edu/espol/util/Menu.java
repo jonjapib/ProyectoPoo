@@ -7,6 +7,7 @@ package ec.edu.espol.util;
 
 import ec.edu.espol.model.Concurso;
 import ec.edu.espol.model.Criterio;
+import ec.edu.espol.model.Dueño;
 import ec.edu.espol.model.MiembroJurado;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -26,7 +27,6 @@ public class Menu {
         System.out.println("6.- Inscripción");
         System.out.println("7.- MiembroJurado");
         System.out.println("8.- Evaluacion");
-        System.out.println("9.- Salir");
     }
     @SuppressWarnings("empty-statement")
         public static void menu(){
@@ -43,7 +43,7 @@ public class Menu {
         switch(opcion){
             case 1:
                 System.out.println("Ingrese los datos del Dueño");
-                Dueño nxDueño = Dueño.nextConcurso(sc);
+                Dueño nxDueño = Dueño.nextDueño(sc);
                 
                
                 break;

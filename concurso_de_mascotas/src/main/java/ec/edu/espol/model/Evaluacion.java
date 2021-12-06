@@ -136,10 +136,16 @@ public class Evaluacion {
 //            int id = sc.nextInt();       
                System.out.println("ingrese correo nota de evaluacion");
                double nota=sc.nextDouble();
-        String correo = miembroJurado.getEmail();
+        String correo = MiembroJurado.readFile("MiembroJurado.txt").get(0).getEmail();
+        int idJurado = MiembroJurado.readFile("MiembroJurado.txt").get(1).getIdMJCedula();
+        int idCriterio=Criterio.readFile("Criterio.txt").get(1).getIdCriterio();
+        
+        int idInscripcion=1;
+        
+
                
 
-       Evaluacion evaluacion = new Criterio(Util.nextID("Criterios.txt"), descripcion, Concurso.readFile("Concurso.txt").get(id-1).getNombre() );
+       Evaluacion evaluacion = new Evaluacion(Util.nextID("evaluacion.txt"), correo,idInscripcion ,idJurado,idCriterio, nota);
     
         return evaluacion;
     
