@@ -67,6 +67,7 @@ public class Menu {
                 System.out.println(listaConcurso);
                 break;
             case 4:
+                System.out.println("Ingrese numero de los premios: ");
                 
                 break;
             case 5:
@@ -86,7 +87,9 @@ public class Menu {
                 break;
 
             case 6:
-                
+                System.out.println("ingrese Inscripcion: ");
+                Inscripcion i = Inscripcion.nextInscripcion(sc)
+                i.saveFile("Inscripciones.txt")
                 break;
             case 7:
                 System.out.println("Ingrese Datos del jurado");
