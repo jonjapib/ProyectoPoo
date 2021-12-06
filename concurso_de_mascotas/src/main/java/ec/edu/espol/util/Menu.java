@@ -8,6 +8,8 @@ package ec.edu.espol.util;
 import ec.edu.espol.model.Concurso;
 import ec.edu.espol.model.Criterio;
 import ec.edu.espol.model.Dueño;
+import ec.edu.espol.model.Evaluacion;
+import ec.edu.espol.model.Mascota;
 import ec.edu.espol.model.MiembroJurado;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -44,14 +46,11 @@ public class Menu {
             case 1:
                 System.out.println("Ingrese los datos del Dueño");
                 Dueño nxDueño = Dueño.nextDueño(sc);
-<<<<<<< HEAD
-                
-               
-=======
+
                 nxDueño.saveFile("Dueño.txt");
                 ArrayList<Dueño> listaDueño = Dueño.readFile("Dueño.txt");
                 System.out.println(listaDueño);
->>>>>>> 1e5b5e8773ec77622348de1142ada26b705ba5d9
+
                 break;
             case 2:
                 System.out.println("Ingrese los datos de la Mascota: ");
@@ -97,18 +96,15 @@ public class Menu {
                 System.out.println(v);
                 break;
             case 8:
-//                                System.out.println("Ingrese Datos del jurado");
-//                MiembroJurado p = MiembroJurado.nextMiembroJurado(sc);
-//                p.savefile("jurado.txt"); 
-//                ArrayList<MiembroJurado> v = MiembroJurado.readFile("jurado.txt");
-//                System.out.println(v);
+                System.out.println("Ingrese Datos del jurado");
+                Evaluacion e = Evaluacion.nextEvaluacion(sc);
+                e.savefile("evaluacion.txt"); 
+                ArrayList<Evaluacion> ve = Evaluacion.readFile("jurado.txt");
+                System.out.println(ve);
                 break;
         }
         }
-//                public static int idJurado(){
-//            int id=Util.nextID("jurado.txt");
-//            return id;
-//        }
+
        
     
 }
