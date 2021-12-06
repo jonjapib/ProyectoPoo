@@ -5,7 +5,12 @@
  */
 package ec.edu.espol.model;
 
+import ec.edu.espol.util.Util;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -46,13 +51,42 @@ public class Inscripcion {
         double pagoInscripcion = sc.nextDouble();
         System.out.println("Fecha de la inscripción: ");
         String fechaInscripcion = sc.nextLine();
+        LocalDate fecha_Inscripcion = LocalDate.parse(fechaInscripcion);
         
-        return null;
+        return new Inscripcion(Util.nextID("inscripciones.txt"),nombre,nombreConcurso,pagoInscripcion,fecha_Inscripcion);
         
+    }
+
+    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Inscripcion other = (Inscripcion) obj;
+        if (this.idMascota != other.idMascota) {
+            return false;
+        }
+        return true;
     }
     
     //Método saveFile
-    public void saveFile(String File){
+    public void saveFile(String nomfile){
+        try(PrintWriter pw = new PrintWriter(new FileOutputStream(new File(nomfile),true))){
+           
+           pw.println(this.id+"|"+this.idMascota+"|"+this.mascota+"|"+this.idConcurso+"|"+this.valor+"|"+this.descuento);
+       }
+       
+       catch(Exception e){
+           System.out.println(e.getMessage());
+       }
         
     }
     
