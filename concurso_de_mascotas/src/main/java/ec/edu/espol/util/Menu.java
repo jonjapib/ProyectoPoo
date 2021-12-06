@@ -44,11 +44,21 @@ public class Menu {
             case 1:
                 System.out.println("Ingrese los datos del Dueño");
                 Dueño nxDueño = Dueño.nextDueño(sc);
+<<<<<<< HEAD
                 
                
+=======
+                nxDueño.saveFile("Dueño.txt");
+                ArrayList<Dueño> listaDueño = Dueño.readFile("Dueño.txt");
+                System.out.println(listaDueño);
+>>>>>>> 1e5b5e8773ec77622348de1142ada26b705ba5d9
                 break;
             case 2:
-                
+                System.out.println("Ingrese los datos de la Mascota: ");
+                Mascota nxMascota = Mascota.nextMascota(sc);
+                nxMascota.saveFile("Mascota.txt");
+                ArrayList<Mascota> listaMascota = Mascota.readFile("Mascota.txt");
+                System.out.println(listaMascota);
                 break;
             case 3:
                 System.out.println("Ingrese los datos del concurso");
